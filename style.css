@@ -1,0 +1,26 @@
+    .weatherDashboard {
+        color: blue;
+        text-align: center;
+    }
+    
+    #cities {
+        padding: 0;
+        margin: 0;
+        
+    }
+    
+    #city{
+        font-size: x-large;
+    }
+    
+    .container{
+        border-width: thin;
+        border-style: solid;
+        border-color: blue
+    }
+
+    
+    .row{
+        margin: 2px;
+    }
+    

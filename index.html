@@ -1,11 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./Assets/style.css">
     <title>Weather Dashboard</title>
 </head>
+
 <body>
-    
+    <h1 class ="weatherDashboard">Weather Dashboard</h1>
+    <div id="main" class="row">
+        <div class="col-3">
+            <h4>Enter a City:</h4>
+            <div class="input mb-3">
+                <input type="text" class="form-control" aria-label="Recipient's username"
+                    aria-describedby="button-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="search-button">search</button>
+                </div>
+            </div>
+            <div id="cities" class="btn btn-block btn-group-vertical"></div>
+        </div>
+        <div class="col-9">
+            <div class="row container" id="currentCity">
+                <div id="city" class="row col-12">Dallas
+                    <img id="weatherIcon" src="">
+                </div>
+                <div id="temp" class="row col-12">Temperature</div>
+                <div id="humid" class="row col-12">Humidity</div>
+                <div id="wind" class="row col-12">Wind Speed</div>
+                <div id="uvIndex" class="row col-12">UV Index</div>
+            </div>
+            <div class="container">
+                <div class="row col-12"> Forecast</div>
+                    <div class="row col-12" id="forecast"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./Assets/script.js"></script>
 </body>
+
 </html>
