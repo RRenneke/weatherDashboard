@@ -133,3 +133,17 @@ async function displayWeather() {
                 url: uvURL,
                 method: "GET"
             })
+
+    //UV Index color settings
+        var UVIndex = uvResponse.value;
+        var UVValue = $("<span>");
+    //setting color based on value
+        if (UVIndex < 1.99){
+            UVValue.addClass("low");
+        }else if(UVIndex >= 2.00 && UVIndex <= 4.99){
+            UVValue.addClass("moderate");
+        }else {
+            UVValue.addClass("high");
+        }
+
+        
