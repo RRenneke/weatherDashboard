@@ -77,3 +77,59 @@ $("#citySearchBtn").on("click", function(event){
     displayWeather();
     displayFiveDay();
 });
+
+
+//function displays the weather with Open Weather API
+async function displayWeather() {
+    //create a variable that says where to get the data from
+        var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=imperial&appid=1e14f105f335994533ed9aca6312a5c8";
+    //AJAX call with the url and method. 
+        var response = await $.ajax({
+            url: queryURL,
+    //method is GET since all the data can be pulled from that API
+            method: "GET"
+          })
+    //create a element /div to hold the data point / current weather
+    var weatherDiv = $("<div class='card-body' id='currentWeather'>");
+    
+    //variables for date (tutor help)
+            var date = new Date();
+            var val=(date.getMonth()+1)+"/"+date.getDate()+"/"+date.getFullYear();
+            
+    //Get the icon response and a place to hold it, waiting to push to page until the element I want it next to has been pushed
+            var weatherIcon = response.weather[0].icon;
+            var displayIcon = $("<img src = http://openweathermap.org/img/wn/" + weatherIcon + "@2x.png />");
+    
+    //Get and display the city 
+    //variable to hold the city name
+            var responseCity = response.name;
+    //create an H3 to hold the responses value
+            var cityNameEl = $("<h3 class = 'card-body'>").text(responseCity+" ("+val+")");
+    //append the icon to the city name
+            cityNameEl.append(displayIcon);
+    //append the city name to the div
+            weatherDiv.append(cityNameEl);
+    
+    //Get and display the temperature
+    //used to fixed so there is no decimal
+            var getTemp = response.main.temp.toFixed(0);
+            var tempEl = $("<p class='card-text'>").text("Temperature: "+getTemp+"° F");
+            weatherDiv.append(tempEl);
+            
+    //Get and display the humidity
+            var humidity = response.main.humidity;
+            var humidityEl = $("<p class='card-text'>").text("Humidity: "+humidity+"%");
+            weatherDiv.append(humidityEl);
+            
+    //Get and display the wind speed
+            var windSpeed = response.wind.speed.toFixed(1);
+            var windSpeedEl = $("<p class='card-text'>").text("Wind Speed: "+windSpeed+" mph");
+            weatherDiv.append(windSpeedEl);
+            
+            var getLong = response.coord.lon;
+            var getLat = response.coord.lat;
+            var uvURL = "https://api.openweathermap.org/data/2.5/uvi?appid=1e14f105f335994533ed9aca6312a5c8&lat="+getLat+"&lon="+getLong;
+            var uvResponse = await $.ajax({
+                url: uvURL,
+                method: "GET"
+            })
