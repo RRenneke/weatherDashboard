@@ -49,3 +49,31 @@ function currentCity() {
         displayFiveDay();
     }
 }
+//functions will set tht city list and current city into local storage
+function storedCityArray() {
+    localStorage.setItem("cities", JSON.stringify(cityList));
+    }
+function storedCurrentCity() {
+    localStorage.setItem("currentCity", JSON.stringify(cityName));
+}
+      
+// Click event handler for city search button (example in class activity 6.8)
+$("#citySearchBtn").on("click", function(event){
+//always add preventDefault when there is an event to prevent default behavior
+    event.preventDefault();
+//Grab the input from the enter city text box
+    cityName = $("#userCity").val().trim();
+//alert user if no city was entered
+    if(cityName === ""){
+        alert("Please enter a city to look up")
+    }else{
+// Add the city from the text box to our array
+    cityList.push(cityName);
+    }
+ //call the functions to handling updating the city and the corresponding weather   
+    storedCurrentCity();
+    storedCityArray();
+    displayCities();
+    displayWeather();
+    displayFiveDay();
+});
