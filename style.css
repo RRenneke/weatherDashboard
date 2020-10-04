@@ -1,4 +1,4 @@
-/* Add margin and padding to override any defaults */
+/* Margin and padding are 0 to override any defaults */
 body {
     background: skyblue;
     margin: 0;

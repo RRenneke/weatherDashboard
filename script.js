@@ -113,17 +113,17 @@ var weatherDiv = $("<div class='card-body' id='currentWeather'>");
 //Get and display the temperature
 //used to fixed so there is no decimal
         var getTemp = response.main.temp.toFixed(0);
-        var tempEl = $("<p class='card-text'>").text("Temperature: "+getTemp+"° F");
+        var tempEl = $("<p class='card-text'>").text("Temperature: " + getTemp + "°F");
         weatherDiv.append(tempEl);
         
 //Get and display the humidity
         var humidity = response.main.humidity;
-        var humidityEl = $("<p class='card-text'>").text("Humidity: "+humidity+"%");
+        var humidityEl = $("<p class='card-text'>").text("Humidity: " + humidity + "%");
         weatherDiv.append(humidityEl);
         
 //Get and display the wind speed
         var windSpeed = response.wind.speed.toFixed(1);
-        var windSpeedEl = $("<p class='card-text'>").text("Wind Speed: "+windSpeed+" mph");
+        var windSpeedEl = $("<p class='card-text'>").text("Wind Speed: " + windSpeed + " mph");
         weatherDiv.append(windSpeedEl);
         
         var getLong = response.coord.lon;
@@ -191,11 +191,11 @@ async function displayFiveDay() {
         fiveDayBox.append(displayWeatherIcon);
         
         var getTemp = response.list[i].main.temp.toFixed(0);
-        var tempEl = $("<p class='card-text'>").text("Temp: "+getTemp+"° F");
+        var tempEl = $("<p class='card-text'>").text("Temp: " + getTemp + "°F");
         fiveDayBox.append(tempEl);
         
         var humidity = response.list[i].main.humidity;
-        var humidityEl = $("<p class='card-text'>").text("Humidity: "+humidity+"%");
+        var humidityEl = $("<p class='card-text'>").text("Humidity: " + humidity + "%");
         fiveDayBox.append(humidityEl);
         forecastCard.append(fiveDayBox);
         fiveDayDiv.append(forecastCard);
