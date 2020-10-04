@@ -21,12 +21,10 @@ WHEN I open the weather dashboard
 THEN I am presented with the last searched city forecast
 
 
-
-
 Links: 
 https://github.com/RRenneke/weatherDashboard.git
 
 https://github.com/RRenneke/weatherDashboard
 
 
-<img src="WeatherDashbboard/Assets/DashboardScreenShot.png" alt="Dashboard Screenshot">
+<img src="DashboardScreenShot.png" alt="Dashboard Screenshot">
